@@ -1,7 +1,9 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -36,9 +38,8 @@ public class Parser {
                 items.add(item);
             }
         }
-        for (Item item :items) {
-            System.out.println(item.toString());
-        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(new File("C:\\Users\\super\\IdeaProjects\\parser\\src\\main\\resources\\items.json"), items);
         System.out.println("Number of Connection - " + numberOfConnection);
         System.out.println("Number of Items - " + items.size());
     }

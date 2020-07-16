@@ -1,13 +1,14 @@
 import java.io.IOException;
 
 public class Main {
+    public static final String URL = "https://www.aboutyou.de/maenner/bekleidung";
     public static void main(String[] args) {
+        Parser parser = new Parser();
 
         try {
-            Parser parser = new Parser();
-            parser.htmlParser("https://www.aboutyou.de/maenner/bekleidung");
+            parser.htmlParser(URL);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Can't parse URL - " + URL);
         }
     }
 }

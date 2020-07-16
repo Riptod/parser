@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.util.ArrayList;
 
 public class ColorUtils {
@@ -175,16 +174,6 @@ public class ColorUtils {
         return getColorNameFromRgb(r, g, b);
     }
 
-    public int colorToHex(Color c) {
-        return Integer.decode("0x"
-                + Integer.toHexString(c.getRGB()).substring(2));
-    }
-
-    public String getColorNameFromColor(Color color) {
-        return getColorNameFromRgb(color.getRed(), color.getGreen(),
-                color.getBlue());
-    }
-
     public class ColorName {
         public int r, g, b;
         public String name;
@@ -199,18 +188,6 @@ public class ColorUtils {
         public int computeMSE(long pixR, long pixG, long pixB) {
             return (int) (((pixR - r) * (pixR - r) + (pixG - g) * (pixG - g) + (pixB - b)
                     * (pixB - b)) / 3);
-        }
-
-        public int getR() {
-            return r;
-        }
-
-        public int getG() {
-            return g;
-        }
-
-        public int getB() {
-            return b;
         }
 
         public String getName() {
